@@ -30,7 +30,7 @@ HTML = """
         </form>
         {% if qr_img %}
             <img src="{{ qr_img }}" alt="QR Code">
-            <a href="{{ qr_img }}" download="qr.png"><button>Download</button></a>
+            <a href="{{ qr_img }}" download=`${name}.png`><button>Download</button></a>
         {% endif %}
     </div>
 </body>
