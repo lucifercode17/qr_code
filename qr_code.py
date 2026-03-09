@@ -1,6 +1,7 @@
 from flask import Flask, render_template_string, request, send_file
 import qrcode
 import io
+import os
 
 app = Flask(__name__)
 
@@ -48,5 +49,7 @@ def home():
         qr_img = 'data:image/png;base64,' + __import__('base64').b64encode(buf.getvalue()).decode()
     return render_template_string(HTML, qr_img=qr_img)
 
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)   
